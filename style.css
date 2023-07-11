@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: white;
+}
+.picture .front-view img{
+    width: 40px;
+}
+
+.picture .back-view img{
+    max-width: 80px;
+}
+
+.container{
+    height: 545px;
+    width: 700px;
+    background: red;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 0 10px;
+}
+.pictures,
+.picture,
+.view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pictures{
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.pictures .picture{
+    height: 155px;
+    width: 155px;
+    cursor: pointer;
+
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+.pictures .picture .view{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.616);
+    
+    position: absolute;
+    transition: transform .25s linear;
+    backface-visibility: hidden;
+    pointer-events: none;
+    user-select: none;
+}
+.picture .front-view span{
+    font-size: 40px;
+    color: #6563ff;
+}
+.picture .back-view{
+    transform: rotateY(-180deg);
+}
+.picture.flip .back-view{
+    transform: rotateY(0);
+}
+.picture.flip .front-view{
+    transform: rotateY(180deg);
+}
+.message {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: green;
+    color: white;
+    font-size: 106px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.616);
+}
